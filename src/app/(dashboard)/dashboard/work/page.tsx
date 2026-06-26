@@ -81,7 +81,7 @@ export default async function WorkPage() {
                 <p className="text-sm font-medium text-work">{a.title}</p>
                 {a.description && <p className="text-xs text-muted-foreground mt-0.5">{a.description}</p>}
                 <p className="text-xs text-muted-foreground mt-1">
-                  {formatDate(a.created_at, { day: "numeric", month: "short" })}
+                  {formatDate(a.created_at, { day: "numeric", month: "long", year: "numeric" })}
                 </p>
               </div>
             ))}

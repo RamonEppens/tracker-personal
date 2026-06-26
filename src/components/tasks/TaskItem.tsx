@@ -73,7 +73,7 @@ export function TaskItem({ task, accentColor = "work" }: TaskItemProps) {
           {task.due_date && (
             <span className="text-xs text-muted-foreground flex items-center gap-1">
               <Calendar size={9} strokeWidth={1.5} />
-              {formatDate(task.due_date, { day: "numeric", month: "short" })}
+              {formatDate(task.due_date, { day: "numeric", month: "long", year: "numeric" })}
               {task.google_event_id && " · cal"}
             </span>
           )}

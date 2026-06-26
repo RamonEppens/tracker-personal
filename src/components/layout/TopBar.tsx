@@ -9,7 +9,7 @@ interface TopBarProps {
 export function TopBar({ userName }: TopBarProps) {
   const greeting = getGreeting();
   const today = new Date();
-  const dateStr = format(today, "EEEE, d 'de' MMMM", { locale: es });
+  const dateStr = format(today, "EEEE, d 'de' MMMM 'de' yyyy", { locale: es });
 
   return (
     <header className="flex items-center justify-between px-5 py-3.5 md:px-7 border-b border-border bg-card/80">
