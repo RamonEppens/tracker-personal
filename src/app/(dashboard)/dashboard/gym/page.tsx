@@ -89,9 +89,14 @@ export default async function GymPage() {
 
       {/* Historial */}
       <div>
-        <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
-          Historial de sesiones
-        </h2>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+            Historial de sesiones
+          </h2>
+          <Link href="/dashboard/gym/progress" className="text-xs text-gym hover:underline">
+            Ver progreso →
+          </Link>
+        </div>
 
         {sessions && sessions.length > 0 ? (
           <div className="bg-card border border-border rounded divide-y divide-border">

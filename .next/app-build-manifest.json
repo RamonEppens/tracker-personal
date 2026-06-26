@@ -26,20 +26,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(dashboard)/dashboard/gym/page.js"
     ],
-    "/(dashboard)/dashboard/work/page": [
+    "/(dashboard)/dashboard/gym/new-session/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/dashboard/work/page.js"
-    ],
-    "/(dashboard)/dashboard/calendar/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/dashboard/calendar/page.js"
-    ],
-    "/(dashboard)/dashboard/faculty/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/dashboard/faculty/page.js"
+      "static/chunks/app/(dashboard)/dashboard/gym/new-session/page.js"
     ]
   }
 }

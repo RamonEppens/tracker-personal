@@ -1,36 +1,22 @@
 {
   "node": {
-    "7e8ce02ce4063aa5897418a15d459a1c0e00e41d": {
+    "aca5665a995bd0afac3440ca5248465e1c5bf475": {
       "workers": {
-        "app/(dashboard)/dashboard/work/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Ctasks.ts%22%2C%5B%22toggleTask%22%2C%22createTask%22%2C%22deleteTask%22%5D%5D%5D&__client_imported__=true!",
-        "app/(dashboard)/dashboard/faculty/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Ctasks.ts%22%2C%5B%22toggleTask%22%2C%22createTask%22%2C%22deleteTask%22%5D%5D%5D&__client_imported__=true!"
+        "app/(dashboard)/dashboard/gym/new-session/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Cgym.ts%22%2C%5B%22createWorkoutSession%22%2C%22deleteWorkoutSession%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
-        "app/(dashboard)/dashboard/work/page": "action-browser",
-        "app/(dashboard)/dashboard/faculty/page": "action-browser"
+        "app/(dashboard)/dashboard/gym/new-session/page": "action-browser"
       }
     },
-    "98de6ca1fc2b9d0b01862c67128b02690d60914f": {
+    "e831eb2b6218ab1418fc037b290c054f0c8e7a7c": {
       "workers": {
-        "app/(dashboard)/dashboard/work/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Ctasks.ts%22%2C%5B%22toggleTask%22%2C%22createTask%22%2C%22deleteTask%22%5D%5D%5D&__client_imported__=true!",
-        "app/(dashboard)/dashboard/faculty/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Ctasks.ts%22%2C%5B%22toggleTask%22%2C%22createTask%22%2C%22deleteTask%22%5D%5D%5D&__client_imported__=true!"
+        "app/(dashboard)/dashboard/gym/new-session/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Cgym.ts%22%2C%5B%22createWorkoutSession%22%2C%22deleteWorkoutSession%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
-        "app/(dashboard)/dashboard/work/page": "action-browser",
-        "app/(dashboard)/dashboard/faculty/page": "action-browser"
-      }
-    },
-    "e36ccc824a5e5ad6be25b2d234cb6935ac60f2a1": {
-      "workers": {
-        "app/(dashboard)/dashboard/work/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Ctasks.ts%22%2C%5B%22toggleTask%22%2C%22createTask%22%2C%22deleteTask%22%5D%5D%5D&__client_imported__=true!",
-        "app/(dashboard)/dashboard/faculty/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cramon%5C%5COneDrive%5C%5CDocumentos%5C%5CTracker%20-%20Eppens%5C%5CTracker%20personal%5C%5Ctracker-app%5C%5Csrc%5C%5Clib%5C%5Cactions%5C%5Ctasks.ts%22%2C%5B%22toggleTask%22%2C%22createTask%22%2C%22deleteTask%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/(dashboard)/dashboard/work/page": "action-browser",
-        "app/(dashboard)/dashboard/faculty/page": "action-browser"
+        "app/(dashboard)/dashboard/gym/new-session/page": "action-browser"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "yAPmFFcJ3Ixkby76MBBWfBav30M7vIrqBXd7qj86nKA="
+  "encryptionKey": "pkbPzDX8Q0nDcLwG0S0MI0QYbRKKwJCtzHGbrpc7bjg="
 }
