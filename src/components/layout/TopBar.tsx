@@ -1,4 +1,4 @@
-import { getGreeting, getDayName } from "@/lib/utils";
+import { getGreeting } from "@/lib/utils";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 
@@ -9,18 +9,16 @@ interface TopBarProps {
 export function TopBar({ userName }: TopBarProps) {
   const greeting = getGreeting();
   const today = new Date();
-  const dateStr = format(today, "d 'de' MMMM", { locale: es });
+  const dateStr = format(today, "EEEE, d 'de' MMMM", { locale: es });
 
   return (
-    <header className="flex items-center justify-between px-4 py-4 md:px-6 border-b border-border bg-card/50 backdrop-blur-sm">
+    <header className="flex items-center justify-between px-5 py-3.5 md:px-7 border-b border-border bg-card/80">
       <div>
-        <p className="text-sm text-muted-foreground capitalize">{dateStr}</p>
-        <h1 className="text-base font-semibold">
-          {greeting}, {userName?.split(" ")[0] || "Ramón"} 👋
-        </h1>
+        <p className="text-xs text-muted-foreground capitalize tracking-wide">{dateStr}</p>
+        <p className="text-sm font-medium text-foreground mt-0.5">
+          {greeting}, {userName?.split(" ")[0] || "Ramón"}
+        </p>
       </div>
-      {/* Espacio para futuras acciones globales (notificaciones, etc.) */}
-      <div />
     </header>
   );
 }

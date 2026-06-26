@@ -60,9 +60,9 @@ export default async function FacultyPage() {
         </div>
         <Link
           href="/dashboard/faculty/new-task"
-          className="flex items-center gap-2 bg-faculty text-white font-medium text-sm px-4 py-2 rounded-xl hover:opacity-90 transition-opacity"
+          className="flex items-center gap-2 border border-faculty text-faculty hover:bg-faculty hover:text-white font-medium text-sm px-4 py-2 rounded transition-all"
         >
-          <Plus size={16} /> Nueva tarea
+          <Plus size={14} strokeWidth={1.5} /> Nueva tarea
         </Link>
       </div>
 
@@ -101,18 +101,18 @@ export default async function FacultyPage() {
             Pendientes
           </h2>
           {pending.length > 0 ? (
-            <div className="space-y-2">
+            <div className="bg-card border border-border rounded divide-y divide-border">
               {pending.map((task) => (
                 <TaskItem
                   key={task.id}
                   task={task as Task & { subjects: { name: string } | null }}
-                  accentColor="purple"
+                  accentColor="faculty"
                 />
               ))}
             </div>
           ) : (
-            <p className="text-sm text-muted-foreground py-6 text-center border border-dashed border-border rounded-xl">
-              Sin tareas pendientes 🎉
+            <p className="text-sm text-muted-foreground py-5 text-center border border-dashed border-border rounded">
+              Sin tareas pendientes
             </p>
           )}
         </div>
@@ -141,12 +141,12 @@ export default async function FacultyPage() {
           <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
             Completadas
           </h2>
-          <div className="space-y-2">
+          <div className="bg-card border border-border rounded divide-y divide-border opacity-70">
             {done.slice(0, 5).map((task) => (
               <TaskItem
                 key={task.id}
                 task={task as Task & { subjects: { name: string } | null }}
-                accentColor="purple"
+                accentColor="faculty"
               />
             ))}
           </div>

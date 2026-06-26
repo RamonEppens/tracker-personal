@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard", icon: Home, exact: true },
-  { href: "/dashboard/gym", label: "Gym", icon: Dumbbell, color: "text-gym" },
-  { href: "/dashboard/work", label: "Trabajo", icon: Briefcase, color: "text-work" },
-  { href: "/dashboard/faculty", label: "Facultad", icon: GraduationCap, color: "text-faculty" },
-  { href: "/dashboard/calendar", label: "Agenda", icon: Calendar },
+  { href: "/dashboard",          label: "Inicio",    icon: Home,          exact: true },
+  { href: "/dashboard/gym",      label: "Gimnasio",  icon: Dumbbell },
+  { href: "/dashboard/work",     label: "Trabajo",   icon: Briefcase },
+  { href: "/dashboard/faculty",  label: "Facultad",  icon: GraduationCap },
+  { href: "/dashboard/calendar", label: "Agenda",    icon: Calendar },
 ];
 
 interface SidebarProps {
@@ -34,51 +34,63 @@ export function Sidebar({ userEmail, userName }: SidebarProps) {
     : userEmail?.[0].toUpperCase() ?? "R";
 
   return (
-    <aside className="hidden md:flex flex-col w-56 min-h-screen bg-card border-r border-border p-4 fixed left-0 top-0">
-      {/* Logo */}
-      <div className="flex items-center gap-2 px-2 mb-8 mt-2">
-        <span className="text-primary text-xl font-bold">◈</span>
-        <span className="font-semibold text-sm tracking-tight">Tracker Personal</span>
+    <aside className="hidden md:flex flex-col w-52 min-h-screen bg-leather-dark border-r border-leather-light/20 p-5 fixed left-0 top-0">
+      {/* Título — estilo cuaderno */}
+      <div className="px-1 mb-8 mt-1">
+        <p className="font-playfair text-leather-active text-base font-semibold leading-tight">
+          Tracker
+        </p>
+        <p className="text-leather-muted text-xs tracking-widest uppercase mt-0.5">
+          Personal
+        </p>
       </div>
 
-      {/* Nav links */}
-      <nav className="flex-1 space-y-1">
-        {navItems.map(({ href, label, icon: Icon, exact, color }) => {
+      {/* Navegación */}
+      <nav className="flex-1 space-y-0.5">
+        {navItems.map(({ href, label, icon: Icon, exact }) => {
           const isActive = exact ? pathname === href : pathname.startsWith(href);
           return (
             <Link
               key={href}
               href={href}
               className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+                "flex items-center gap-3 px-3 py-2.5 rounded text-sm transition-all duration-150",
                 isActive
-                  ? "bg-primary/10 text-primary"
-                  : cn("text-muted-foreground hover:text-foreground hover:bg-accent", color)
+                  ? "text-leather-active bg-leather-light/30"
+                  : "text-leather-muted hover:text-leather-text hover:bg-leather-light/20"
               )}
             >
-              <Icon size={16} strokeWidth={isActive ? 2.5 : 1.75} />
-              {label}
+              <Icon
+                size={15}
+                strokeWidth={isActive ? 2 : 1.5}
+                className="flex-shrink-0"
+              />
+              <span className={cn("tracking-wide", isActive && "font-medium")}>
+                {label}
+              </span>
             </Link>
           );
         })}
       </nav>
 
-      {/* User footer */}
-      <div className="border-t border-border pt-4 mt-4">
-        <div className="flex items-center gap-3 px-2 mb-3">
-          <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold flex-shrink-0">
+      {/* Footer de usuario */}
+      <div className="border-t border-leather-light/20 pt-4 mt-4 space-y-3">
+        <div className="flex items-center gap-3 px-1">
+          <div className="w-7 h-7 rounded-full bg-leather-light flex items-center justify-center text-leather-active text-xs font-bold flex-shrink-0">
             {initials}
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-medium truncate">{userName || "Usuario"}</p>
-            <p className="text-xs text-muted-foreground truncate">{userEmail}</p>
+            <p className="text-xs font-medium text-leather-text truncate">
+              {userName?.split(" ")[0] || "Usuario"}
+            </p>
+            <p className="text-xs text-leather-muted truncate">{userEmail}</p>
           </div>
         </div>
         <button
           onClick={signOut}
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-all w-full"
+          className="flex items-center gap-3 px-3 py-2 rounded text-xs text-leather-muted hover:text-leather-text hover:bg-leather-light/20 transition-all w-full"
         >
-          <LogOut size={14} />
+          <LogOut size={13} strokeWidth={1.5} />
           Cerrar sesión
         </button>
       </div>

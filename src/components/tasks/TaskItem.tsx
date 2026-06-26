@@ -2,25 +2,29 @@
 
 import { toggleTask, deleteTask } from "@/lib/actions/tasks";
 import { useTransition } from "react";
-import { Calendar, Trash2 } from "lucide-react";
+import { Calendar, X } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import type { Task } from "@/types/database";
 
-const PRIORITY_LABEL = {
-  high:   { label: "Alta",  color: "text-red-400 bg-red-950" },
-  medium: { label: "Media", color: "text-blue-400 bg-blue-950" },
-  low:    { label: "Baja",  color: "text-zinc-400 bg-zinc-800" },
+const PRIORITY = {
+  high:   { label: "Alta",  dot: "bg-destructive" },
+  medium: { label: "Media", dot: "bg-muted-foreground" },
+  low:    { label: "Baja",  dot: "bg-border" },
 };
 
 interface TaskItemProps {
   task: Task & { subjects?: { name: string } | null };
-  accentColor?: string; // "blue" | "purple"
+  accentColor?: "work" | "faculty" | "gym";
 }
 
-export function TaskItem({ task, accentColor = "blue" }: TaskItemProps) {
+export function TaskItem({ task, accentColor = "work" }: TaskItemProps) {
   const [pending, startTransition] = useTransition();
-  const p = PRIORITY_LABEL[task.priority];
-  const checkColor = accentColor === "purple" ? "bg-purple-500 border-purple-500" : "bg-blue-500 border-blue-500";
+  const p = PRIORITY[task.priority];
+
+  const checkDone =
+    accentColor === "faculty" ? "border-faculty bg-faculty"
+    : accentColor === "gym"   ? "border-gym bg-gym"
+    :                           "border-work bg-work";
 
   function handleToggle() {
     startTransition(() => toggleTask(task.id, !task.done));
@@ -33,58 +37,60 @@ export function TaskItem({ task, accentColor = "blue" }: TaskItemProps) {
 
   return (
     <div
-      className={`flex items-center gap-3 p-3 bg-card border border-border rounded-xl transition-opacity ${
-        pending ? "opacity-50" : ""
-      } ${task.done ? "opacity-60" : ""}`}
+      className={`group flex items-start gap-3 py-2.5 px-3 border-b border-border last:border-b-0 transition-opacity ${
+        pending ? "opacity-40" : ""
+      }`}
     >
-      {/* Checkbox */}
+      {/* Checkbox cuadrado — estilo casilla de cuaderno */}
       <button
         onClick={handleToggle}
         disabled={pending}
-        className={`w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors ${
-          task.done ? checkColor : "border-border hover:border-zinc-500"
+        className={`mt-0.5 w-4 h-4 rounded-sm border flex-shrink-0 flex items-center justify-center transition-all ${
+          task.done
+            ? `${checkDone} border-transparent`
+            : "border-border hover:border-muted-foreground bg-transparent"
         }`}
       >
         {task.done && (
-          <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-            <path d="M1.5 4l2 2L6.5 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="8" height="7" viewBox="0 0 8 7" fill="none">
+            <path d="M1 3.5l2 2L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
       </button>
 
-      {/* Info */}
+      {/* Contenido */}
       <div className="flex-1 min-w-0">
-        <p className={`text-sm font-medium ${task.done ? "line-through text-muted-foreground" : ""}`}>
+        <p className={`text-sm leading-snug ${
+          task.done ? "line-through text-muted-foreground" : "text-foreground"
+        }`}>
           {task.title}
         </p>
-        <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+
+        <div className="flex items-center gap-3 mt-0.5 flex-wrap">
           {task.subjects?.name && (
-            <span className="text-xs text-muted-foreground">{task.subjects.name}</span>
+            <span className="text-xs text-muted-foreground italic">{task.subjects.name}</span>
           )}
           {task.due_date && (
-            <span className="text-xs text-muted-foreground flex items-center gap-0.5">
-              <Calendar size={10} />
+            <span className="text-xs text-muted-foreground flex items-center gap-1">
+              <Calendar size={9} strokeWidth={1.5} />
               {formatDate(task.due_date, { day: "numeric", month: "short" })}
+              {task.google_event_id && " · cal"}
             </span>
           )}
-          {task.google_event_id && (
-            <span className="text-xs text-muted-foreground">📅</span>
-          )}
+          <span className={`text-[10px] uppercase tracking-wider flex items-center gap-1 text-muted-foreground`}>
+            <span className={`inline-block w-1.5 h-1.5 rounded-full ${p.dot}`} />
+            {p.label}
+          </span>
         </div>
       </div>
 
-      {/* Prioridad */}
-      <span className={`text-xs font-semibold px-2 py-0.5 rounded-md flex-shrink-0 ${p.color}`}>
-        {p.label}
-      </span>
-
-      {/* Borrar */}
+      {/* Borrar — visible al hacer hover */}
       <button
         onClick={handleDelete}
         disabled={pending}
-        className="p-1.5 text-muted-foreground hover:text-red-400 transition-colors flex-shrink-0"
+        className="mt-0.5 opacity-0 group-hover:opacity-100 p-1 text-muted-foreground hover:text-destructive transition-all flex-shrink-0"
       >
-        <Trash2 size={14} />
+        <X size={12} strokeWidth={1.5} />
       </button>
     </div>
   );

@@ -4,26 +4,44 @@
 
 @layer base {
   :root {
-    --background: 240 10% 6%;
-    --foreground: 240 10% 92%;
-    --card: 240 10% 10%;
-    --card-foreground: 240 10% 92%;
-    --popover: 240 10% 10%;
-    --popover-foreground: 240 10% 92%;
-    --primary: 263 70% 73%;
-    --primary-foreground: 240 10% 6%;
-    --secondary: 240 5% 16%;
-    --secondary-foreground: 240 10% 92%;
-    --muted: 240 5% 16%;
-    --muted-foreground: 240 5% 55%;
-    --accent: 240 5% 18%;
-    --accent-foreground: 240 10% 92%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 6% 18%;
-    --input: 240 6% 18%;
-    --ring: 263 70% 73%;
-    --radius: 0.75rem;
+    /* ── Papel ── */
+    --background:        38 28% 92%;   /* #F2EDE3 crema cálida */
+    --foreground:        26 52% 14%;   /* #2C1F12 marrón oscuro */
+
+    /* ── Tarjetas / secciones ── */
+    --card:              40 42% 96%;   /* #FAF7F1 marfil */
+    --card-foreground:   26 52% 14%;
+
+    --popover:           40 42% 96%;
+    --popover-foreground: 26 52% 14%;
+
+    /* ── Primario: cuero oscuro ── */
+    --primary:           26 60% 22%;   /* #5C3112 cuero */
+    --primary-foreground: 38 35% 93%;  /* crema */
+
+    /* ── Secundario: beige cálido ── */
+    --secondary:         36 22% 86%;   /* #DDD5C5 */
+    --secondary-foreground: 26 52% 14%;
+
+    /* ── Apagado ── */
+    --muted:             36 18% 84%;   /* #D9D1C1 */
+    --muted-foreground:  30 22% 43%;   /* #7A6850 sepia */
+
+    /* ── Acento ── */
+    --accent:            36 20% 89%;   /* #E8E2D5 */
+    --accent-foreground: 26 52% 14%;
+
+    /* ── Error ── */
+    --destructive:       4 58% 40%;    /* #A33020 */
+    --destructive-foreground: 38 35% 93%;
+
+    /* ── Bordes ── */
+    --border:            34 20% 76%;   /* #C8BCAA línea de cuaderno */
+    --input:             34 20% 79%;
+    --ring:              26 40% 30%;
+
+    /* ── Radio: esquinas más suaves que los bordes duros ── */
+    --radius: 0.375rem;
   }
 }
 
@@ -31,15 +49,33 @@
   * {
     @apply border-border;
   }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
+    font-family: var(--font-lora), Georgia, serif;
+  }
+
+  /* Títulos con Playfair Display */
+  h1, h2, h3 {
+    font-family: var(--font-playfair), 'Times New Roman', serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Inputs y selects heredan la fuente */
+  input, textarea, select, button {
+    font-family: inherit;
   }
 }
 
-/* Scrollbar custom */
+/* ── Scrollbar — fino y cálido ── */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -52,18 +88,17 @@
   background: hsl(var(--muted-foreground));
 }
 
-/* Animación de entrada suave para páginas */
+/* ── Entrada suave de páginas ── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.2s ease-out;
+  animation: fadeInUp 0.25s ease-out;
+}
+
+/* ── Línea divisoria estilo cuaderno ── */
+.notebook-line {
+  border-bottom: 1px solid hsl(var(--border));
 }

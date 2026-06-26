@@ -47,36 +47,34 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-sm space-y-8 animate-fade-in-up">
-        {/* Logo / Header */}
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 mb-2">
-            <span className="text-3xl">◈</span>
-          </div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">
+      <div className="w-full max-w-xs space-y-10 animate-fade-in-up">
+
+        {/* Encabezado */}
+        <div className="text-center space-y-2">
+          <h1 className="font-playfair text-3xl font-semibold text-foreground tracking-tight">
             Tracker Personal
           </h1>
-          <p className="text-sm text-muted-foreground">
-            Gym · Trabajo · Facultad
+          <p className="text-xs text-muted-foreground tracking-widest uppercase">
+            Gimnasio · Trabajo · Facultad
           </p>
         </div>
 
-        {/* Card */}
-        <div className="bg-card border border-border rounded-2xl p-8 space-y-6">
-          <div className="space-y-1">
-            <h2 className="text-lg font-semibold">Bienvenido</h2>
+        {/* Panel de acceso */}
+        <div className="bg-card border border-border rounded p-8 space-y-6 shadow-sm">
+          <div className="space-y-1 text-center">
+            <h2 className="font-playfair text-lg text-foreground">Bienvenido</h2>
             <p className="text-sm text-muted-foreground">
-              Iniciá sesión para acceder a tu dashboard personal.
+              Accedé con tu cuenta de Google.
             </p>
           </div>
 
           <button
             onClick={signInWithGoogle}
             disabled={loading}
-            className="w-full flex items-center justify-center gap-3 bg-white text-gray-900 hover:bg-gray-50 disabled:opacity-60 font-medium py-3 px-4 rounded-xl transition-all duration-150 text-sm"
+            className="w-full flex items-center justify-center gap-3 bg-white text-stone-800 hover:bg-stone-50 disabled:opacity-50 border border-stone-200 font-medium py-2.5 px-4 rounded transition-all duration-150 text-sm shadow-sm"
           >
             {loading ? (
-              <div className="w-4 h-4 border-2 border-gray-400 border-t-gray-900 rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-stone-300 border-t-stone-700 rounded-full animate-spin" />
             ) : (
               <GoogleIcon />
             )}
@@ -84,13 +82,13 @@ export default function LoginPage() {
           </button>
 
           {error && (
-            <p className="text-xs text-red-400 bg-red-900/20 border border-red-800 rounded-lg p-3 text-center">
+            <p className="text-xs text-destructive bg-destructive/10 border border-destructive/20 rounded p-3 text-center">
               {error}
             </p>
           )}
 
-          <p className="text-xs text-muted-foreground text-center">
-            Se va a pedir acceso a tu Google Calendar para sincronizar tareas y eventos.
+          <p className="text-xs text-muted-foreground text-center leading-relaxed">
+            Se solicitará acceso a Google Calendar para sincronizar eventos.
           </p>
         </div>
       </div>

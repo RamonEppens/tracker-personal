@@ -43,7 +43,7 @@ export default function NewWorkTaskPage() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Título */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
             Título *
           </label>
@@ -57,7 +57,7 @@ export default function NewWorkTaskPage() {
         </div>
 
         {/* Descripción */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             <AlignLeft size={12} /> Descripción (opcional)
           </label>
@@ -70,9 +70,9 @@ export default function NewWorkTaskPage() {
         </div>
 
         {/* Prioridad */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+        <div className="bg-card border border-border rounded p-4 space-y-3">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            <Flag size={12} /> Prioridad
+            <Flag size={11} strokeWidth={1.5} /> Prioridad
           </label>
           <div className="flex gap-2">
             {PRIORITIES.map((p) => (
@@ -84,7 +84,7 @@ export default function NewWorkTaskPage() {
                   defaultChecked={p.value === "medium"}
                   className="sr-only peer"
                 />
-                <div className={`text-center py-2 px-3 rounded-lg border text-xs font-semibold transition-all peer-checked:${p.bg} ${p.color} border-border hover:border-zinc-600`}>
+                <div className={`text-center py-2 rounded border text-xs transition-all peer-checked:bg-secondary peer-checked:border-foreground/30 ${p.color} border-border`}>
                   {p.label}
                 </div>
               </label>
@@ -93,7 +93,7 @@ export default function NewWorkTaskPage() {
         </div>
 
         {/* Fecha límite */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             <Calendar size={12} /> Fecha límite
           </label>
@@ -111,14 +111,14 @@ export default function NewWorkTaskPage() {
         <div className="flex gap-3 pt-2">
           <Link
             href="/dashboard/work"
-            className="flex-1 py-3 text-center text-sm font-medium text-muted-foreground bg-card border border-border rounded-xl hover:bg-accent transition-colors"
+            className="flex-1 py-2.5 text-center text-sm text-muted-foreground bg-card border border-border rounded hover:bg-accent transition-colors"
           >
             Cancelar
           </Link>
           <button
             type="submit"
             disabled={pending}
-            className="flex-1 py-3 text-sm font-semibold bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white rounded-xl transition-colors"
+            className="flex-1 py-2.5 text-sm font-medium bg-work hover:opacity-90 disabled:opacity-50 text-white rounded transition-colors"
           >
             {pending ? "Guardando..." : "Guardar tarea"}
           </button>

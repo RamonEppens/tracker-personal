@@ -45,9 +45,9 @@ export default async function WorkPage() {
         </div>
         <Link
           href="/dashboard/work/new-task"
-          className="flex items-center gap-2 bg-work text-black font-medium text-sm px-4 py-2 rounded-xl hover:opacity-90 transition-opacity"
+          className="flex items-center gap-2 border border-work text-work hover:bg-work hover:text-white font-medium text-sm px-4 py-2 rounded transition-all"
         >
-          <Plus size={16} /> Nueva tarea
+          <Plus size={14} strokeWidth={1.5} /> Nueva tarea
         </Link>
       </div>
 
@@ -57,14 +57,14 @@ export default async function WorkPage() {
           Pendientes
         </h2>
         {pending.length > 0 ? (
-          <div className="space-y-2">
+          <div className="bg-card border border-border rounded divide-y divide-border">
             {pending.map((task) => (
-              <TaskItem key={task.id} task={task as Task} accentColor="blue" />
+              <TaskItem key={task.id} task={task as Task} accentColor="work" />
             ))}
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground py-6 text-center border border-dashed border-border rounded-xl">
-            Sin tareas pendientes 🎉
+          <p className="text-sm text-muted-foreground py-5 text-center border border-dashed border-border rounded">
+            Sin tareas pendientes
           </p>
         )}
       </div>
@@ -72,12 +72,12 @@ export default async function WorkPage() {
       {/* Logros */}
       {achievements && achievements.length > 0 && (
         <div>
-          <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-1">
-            <Trophy size={12} /> Logros recientes
+          <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
+            <Trophy size={11} strokeWidth={1.5} /> Logros recientes
           </h2>
-          <div className="space-y-2">
+          <div className="bg-work-muted border border-work-border rounded divide-y divide-work-border">
             {achievements.map((a) => (
-              <div key={a.id} className="bg-work-muted border border-work-border rounded-xl p-3">
+              <div key={a.id} className="px-3 py-2.5">
                 <p className="text-sm font-medium text-work">{a.title}</p>
                 {a.description && <p className="text-xs text-muted-foreground mt-0.5">{a.description}</p>}
                 <p className="text-xs text-muted-foreground mt-1">
@@ -95,9 +95,9 @@ export default async function WorkPage() {
           <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
             Completadas
           </h2>
-          <div className="space-y-2">
+          <div className="bg-card border border-border rounded divide-y divide-border opacity-70">
             {done.slice(0, 5).map((task) => (
-              <TaskItem key={task.id} task={task as Task} accentColor="blue" />
+              <TaskItem key={task.id} task={task as Task} accentColor="work" />
             ))}
           </div>
         </div>

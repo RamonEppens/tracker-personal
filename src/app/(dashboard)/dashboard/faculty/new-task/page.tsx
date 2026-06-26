@@ -53,7 +53,7 @@ export default function NewFacultyTaskPage() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Título */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
             Título *
           </label>
@@ -67,7 +67,7 @@ export default function NewFacultyTaskPage() {
         </div>
 
         {/* Materia */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             <BookOpen size={12} /> Materia (opcional)
           </label>
@@ -94,7 +94,7 @@ export default function NewFacultyTaskPage() {
         </div>
 
         {/* Descripción */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             <AlignLeft size={12} /> Descripción (opcional)
           </label>
@@ -107,7 +107,7 @@ export default function NewFacultyTaskPage() {
         </div>
 
         {/* Prioridad */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+        <div className="bg-card border border-border rounded p-4 space-y-3">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             <Flag size={12} /> Prioridad
           </label>
@@ -130,7 +130,7 @@ export default function NewFacultyTaskPage() {
         </div>
 
         {/* Fecha límite */}
-        <div className="bg-card border border-border rounded-xl p-4 space-y-2">
+        <div className="bg-card border border-border rounded p-4 space-y-2">
           <label className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             <Calendar size={12} /> Fecha del parcial / entrega
           </label>
@@ -148,14 +148,14 @@ export default function NewFacultyTaskPage() {
         <div className="flex gap-3 pt-2">
           <Link
             href="/dashboard/faculty"
-            className="flex-1 py-3 text-center text-sm font-medium text-muted-foreground bg-card border border-border rounded-xl hover:bg-accent transition-colors"
+            className="flex-1 py-3 text-center text-sm font-medium text-muted-foreground bg-card border border-border rounded hover:bg-accent transition-colors"
           >
             Cancelar
           </Link>
           <button
             type="submit"
             disabled={pending}
-            className="flex-1 py-3 text-sm font-semibold bg-purple-700 hover:bg-purple-600 disabled:opacity-60 text-white rounded-xl transition-colors"
+            className="flex-1 py-3 text-sm font-semibold bg-faculty hover:opacity-90 disabled:opacity-60 text-white rounded transition-colors"
           >
             {pending ? "Guardando..." : "Guardar tarea"}
           </button>
