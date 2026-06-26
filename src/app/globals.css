@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 6%;
+    --foreground: 240 10% 92%;
+    --card: 240 10% 10%;
+    --card-foreground: 240 10% 92%;
+    --popover: 240 10% 10%;
+    --popover-foreground: 240 10% 92%;
+    --primary: 263 70% 73%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 240 5% 16%;
+    --secondary-foreground: 240 10% 92%;
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 240 5% 18%;
+    --accent-foreground: 240 10% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
+    --ring: 263 70% 73%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Scrollbar custom */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Animación de entrada suave para páginas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.2s ease-out;
+}
